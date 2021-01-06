@@ -24,12 +24,10 @@ int main() {
        
         for(int j=1; j<v.size(); j++) {
            
-          //int min_val=min_element(v.begin(),v.end()-v.size())-v.begin();
-          //swap(v[j],v[min_val]);
             int x=j-1;
             int p=j;
             int val=v[j];
-          //  int *ptr=v[j];
+   
             
            while(x>=0) {
                
