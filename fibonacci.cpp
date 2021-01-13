@@ -32,7 +32,9 @@ public:
 class Solution {
 public:
     int fib(int n) {
-    
+     
+
+        n<2 ? return 1: return n*fib(n-1);
     
         }
         
