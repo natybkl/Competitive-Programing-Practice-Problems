@@ -30,7 +30,7 @@ public:
 
     int kthSmallest(TreeNode* root, int k) {
         dfs(root); 
-       //bfs(root);    either of the two traversing methods works fine
+       //bfs(root);    either of the two calls works fine
         while(k!=1) {
             pq.pop();
             k--;
