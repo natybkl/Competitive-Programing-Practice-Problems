@@ -24,6 +24,6 @@ public:
         }
         
         
-        return *(memo.end() - 1);
+        return memo.back();
     }
 };
