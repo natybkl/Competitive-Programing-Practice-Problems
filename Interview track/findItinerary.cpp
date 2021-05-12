@@ -1,33 +1,33 @@
+#define Graph unordered_map<string,priority_queue<string,vector<string>, greater<string>>>
+
 class Solution {
 public:
-
-    void solve(unordered<pair<string, int>, vector<string>>& graph, string& str, vector<string>& res) {
-	int idx = stoi(graph[str].size() - 1);
-	if(idx >= graph[str].size())
-		return;
-	else {
-		res.push_back(graph[str][idx)]);
-		graph[str][graph[str].size() - 1] = to_string(idx + 1);
-		solve(graph, graph[str][idx], res);
-}
-
-}
-
-    vector<string> findItinerary(vector<vector<string>>& tickets)
- {
-unordered<string, vector<string>> graph;
-vector<string> res;
-	for(auto& [form, to]: tickets) {
-		Graph[from].push_back(to);
-}
-
-for(auto& a: graph) {
-	sort(a.second.begin(), a.second.end());
-}
-
-string start = “JFK”;
-solve(graph, start, res);
-
-return res;
+    void solve(Graph& graph, string from, vector<string>& res) {
+        if(graph.find(from) == graph.end()) {
+            res.push_back(from);
+            return;
+        }
+            
+        while(!graph[from].empty()) {
+            string to = graph[from].top();
+            graph[from].pop();
+            solve(graph, to, res);      
+        }
+        
+        res.push_back(from);     
     }
+
+    vector<string> findItinerary(vector<vector<string>>& tickets) {
+        Graph graph;
+        vector<string> res;
+        
+        for(auto& ticket: tickets) {
+                graph[ticket[0]].push(ticket[1]);
+        }
+
+        solve(graph, "JFK", res);
+        reverse(res.begin(), res.end());
+        return res;
+ }
+
 };
