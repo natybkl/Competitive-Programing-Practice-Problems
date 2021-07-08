@@ -5,13 +5,13 @@ public:
         int y = nums2.size();
         int i,j,ct,ans = 0;
         
-        vector<vector<int>> res(y, vector<int>(x, 0));
+        vector<vector<int>> memo(y, vector<int>(x, 0));
         queue<pair<int,int>> pts;
 
         for(int i = 0; i < y; i++){
             for(int j = 0; j < x; j++){
                 if(nums2[i] == nums1[j]){
-                     res[i][j] = 1;        
+                     memo[i][j] = 1;        
                      pts.push({i,j});
                 }
             } 
@@ -27,8 +27,8 @@ public:
             j = a.second;
             ct = 1;
             while(i+1 < y && j+1 < x){
-                res[i][j] = 0;
-                if(res[++i][++j] != 1)
+                memo[i][j] = 0;
+                if(memo[++i][++j] != 1)
                       break;      
                 ct++;
             }
