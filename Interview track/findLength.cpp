@@ -42,7 +42,8 @@ public:
 
 
 
-
+// after cleaning up some messes with less 
+// space complexity and same time complexity
 class Solution {
 public:
     int findLength(vector<int>& nums1, vector<int>& nums2) {
