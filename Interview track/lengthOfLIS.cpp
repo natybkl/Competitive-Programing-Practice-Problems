@@ -17,7 +17,8 @@ public:
         int ans = 0;
         vector<int> arr(nums.size(), 0);
         for(int i = 0; i < nums.size(); i++)
-           if(arr[i] == 0) ans = max(ans, solve(nums, arr, i));
+           if(arr[i] == 0) 
+               ans = max(ans, solve(nums, arr, i));
 
         return ans;
     }
