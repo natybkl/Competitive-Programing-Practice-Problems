@@ -33,9 +33,31 @@ public:
                 ct++;
             }
 
-            ans = max(ans,ct);
+            ans = max(ans, ct);
         }
         
         return ans;
+    }
+};
+
+
+
+
+class Solution {
+public:
+    int findLength(vector<int>& nums1, vector<int>& nums2) {
+        int x = nums1.size(), y = nums2.size(), res = 0;
+        vector<vector<int>> arr(x + 1, vector<int>(x + 1, 0));
+
+        for(int i = 1; i <= x; i++){
+            for(int j = 1; j <= y; j++){
+                if(nums1[i - 1] == nums2[j - 1])
+                   arr[i][j] = arr[i - 1][j - 1] + 1;
+
+                res = max(res, arr[i][j]);       
+            }
+        }
+        
+        return res;
     }
 };
