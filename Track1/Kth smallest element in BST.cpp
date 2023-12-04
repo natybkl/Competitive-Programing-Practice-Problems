@@ -2,7 +2,7 @@ class Solution {
 public:
     priority_queue<int> pq;
    
-    // dfs traversing
+    /
     void dfs(TreeNode* node) {
         if(node == NULL) return;
         pq.push(node->val*-1);
